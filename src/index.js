@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import "./styles.css";
 
+//控制台
 let div = document.createElement("div");
-div.style = "border:1px solid red;padding:10px;";
+div.style = "border:1px solid red;padding:10px;margin-top:20px;";
 document.body.appendChild(div);
 window.console.log = content => {
   div.innerHTML += content + "<br/>";
 };
+
 class Parent extends React.Component {
   killSon() {
     this.setState({
@@ -29,7 +30,7 @@ class Parent extends React.Component {
   render() {
     return (
       <div className="parent">
-        爸爸
+        我是爸爸
         <button onClick={() => this.callSon()}>call son</button>
         <button onClick={() => this.killSon()}>kill son</button>
         {this.state.hasChild ? <App word={this.state.word} /> : null}
@@ -50,17 +51,11 @@ class App extends React.Component {
       number: 0
     };
   }
-  componentWillMount() {
-    console.log("调用componentWillMount-App将装载");
-  }
-  componentWillUpdate() {
-    console.log("调用componentWilUpdate-App将更新");
-  }
   render() {
     console.log("调用render-更新update");
     return (
       <div className="app">
-        儿子
+        我是儿子
         <br />
         爸爸对儿子说：{this.props.word}
         <br />
@@ -68,6 +63,12 @@ class App extends React.Component {
         <button onClick={() => this.add()}>+1</button>
       </div>
     );
+  }
+  componentWillMount() {
+    console.log("调用componentWillMount-App将装载");
+  }
+  componentWillUpdate() {
+    console.log("调用componentWilUpdate-App将更新");
   }
   componentDidMount() {
     console.log("调用componentDidMount-App已装载");
@@ -82,6 +83,5 @@ class App extends React.Component {
     console.log("调用componentWillReceiveProps,父组件更新render，props改变");
   }
 }
-
 const rootElement = document.getElementById("root");
 ReactDOM.render(<Parent />, rootElement);

@@ -2,6 +2,7 @@
   font-family: sans-serif;
   text-align: center;
   border: 1px solid green;
+  margin-top: 10px;
 }
 .parent {
   border: 1px solid blue;
@@ -9,4 +10,7 @@
 }
 body {
   font-size: 13px;
+}
+button {
+  margin: 0 5px;
 }
