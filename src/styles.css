@@ -1,0 +1,12 @@
+.app {
+  font-family: sans-serif;
+  text-align: center;
+  border: 1px solid green;
+}
+.parent {
+  border: 1px solid blue;
+  padding: 10px;
+}
+body {
+  font-size: 13px;
+}
